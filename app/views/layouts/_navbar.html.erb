@@ -1,6 +1,6 @@
-<nav class="navbar is-info" role="navigation" aria-label="main navigation">
+<nav class="navbar is-warning" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <%= link_to "eCommerce app", root_path, class: "navbar-item is-size-5" %>
+    <%= link_to "eCommerce app", root_path, class: "navbar-item is-size-5 b" %>
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -40,17 +40,17 @@
       <div class="navbar-item">
         <div class="buttons">
           <% if user_signed_in? %>
-            <%= link_to edit_user_registration_path(current_user) , class: "button is-info is-inverted" do %>
+            <%= link_to edit_user_registration_path(current_user) , class: "button is-is-warning is-inverted" do %>
               <i class="fa fa-edit"> <%= current_user.username %>'s profile</i>  
             <% end %>
-            <%= link_to destroy_user_session_path , method: :delete, class: "button is-info" do %>
+            <%= link_to destroy_user_session_path , method: :delete, class: "button is-is-warning" do %>
               <i class="fa fa-user"> Log out</i>  
             <% end %>
           <% else %>
-            <%= link_to new_user_session_path , class: "button is-info is-inverted" do %>
+            <%= link_to new_user_session_path , class: "button is-warning" do %>
               <i class="fa fa-user"> Log in</i>  
             <% end %>
-            <%= link_to new_user_registration_path , class: "button is-info is-inverted" do %>
+            <%= link_to new_user_registration_path , class: "button is-warning" do %>
               <i class="fa fa-user-plus"> Sign Up</i>  
             <% end %>
           <% end %>
