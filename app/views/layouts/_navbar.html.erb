@@ -40,10 +40,10 @@
       <div class="navbar-item">
         <div class="buttons">
           <% if user_signed_in? %>
-            <%= link_to edit_user_registration_path(current_user) , class: "button is-is-warning is-inverted" do %>
+            <%= link_to edit_user_registration_path(current_user) , class: "button is-warning" do %>
               <i class="fa fa-edit"> <%= current_user.username %>'s profile</i>  
             <% end %>
-            <%= link_to destroy_user_session_path , method: :delete, class: "button is-is-warning" do %>
+            <%= link_to destroy_user_session_path , method: :delete, class: "button is-warning" do %>
               <i class="fa fa-user"> Log out</i>  
             <% end %>
           <% else %>

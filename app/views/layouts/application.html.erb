@@ -12,6 +12,7 @@
   <body>
     <%= render 'layouts/messages'%>
     <%= render 'layouts/navbar' %>
+    <%= yield(:header) %>
     <div class="container pa2">
       <%= yield %>
     </div>
