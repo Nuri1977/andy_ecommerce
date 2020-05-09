@@ -25,6 +25,7 @@ class InstrumentsController < ApplicationController
   # POST /instruments.json
   def create
     @instrument = Instrument.new(instrument_params)
+    @instrument.user_id = current_user.id
 
     respond_to do |format|
       if @instrument.save
@@ -69,6 +70,6 @@ class InstrumentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def instrument_params
-      params.require(:instrument).permit(:brand, :model, :description, :condition, :finish, :title, :price)
+      params.require(:instrument).permit(:brand, :model, :description, :condition, :finish, :title, :price, :image)
     end
 end
