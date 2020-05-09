@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Brand:</strong>
+  <%= @instrument.brand %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @instrument.model %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @instrument.description %>
+</p>
+
+<p>
+  <strong>Condition:</strong>
+  <%= @instrument.condition %>
+</p>
+
+<p>
+  <strong>Finish:</strong>
+  <%= @instrument.finish %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @instrument.title %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @instrument.price %>
+</p>
+
+<%= link_to 'Edit', edit_instrument_path(@instrument) %> |
+<%= link_to 'Back', instruments_path %>
