@@ -15,16 +15,12 @@
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
-          Hiring Designers?
+          Cart and items
         </a>
 
         <div class="navbar-dropdown">
-          <a class="navbar-item">
-            About
-          </a>
-          <a class="navbar-item">
-            Jobs
-          </a>
+          <%= link_to "Cart index", carts_path, class: "navbar-item" %>
+          <%= link_to "Line items index", line_items_path, class: "navbar-item" %>
           <a class="navbar-item">
             Contact
           </a>
@@ -37,6 +33,18 @@
     </div>
 
     <div class="navbar-end">
+
+    <% if total_cart_items %>
+      <%= link_to cart_path(@cart), class:"navbar-item button is-warning" do %>
+      <span class="icon is-small">
+        <i class="fa fa-shopping-cart"></i>
+      </span>
+      <span>Cart
+        <%= cart_count_over_one %>
+        </span>
+      <% end %>
+    <% end %>
+
       <div class="navbar-item">
         <div class="buttons">
           <% if user_signed_in? %>
