@@ -40,6 +40,9 @@
       <div class="navbar-item">
         <div class="buttons">
           <% if user_signed_in? %>
+            <%= link_to new_instrument_path, class: "button is-dark" do %>
+              <i class="fa fa-sell"> Sell </i>  
+            <% end %>
             <%= link_to edit_user_registration_path(current_user) , class: "button is-warning" do %>
               <i class="fa fa-edit"> <%= current_user.username %>'s profile</i>  
             <% end %>

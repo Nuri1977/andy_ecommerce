@@ -1,39 +1,44 @@
-<p id="notice"><%= notice %></p>
+<% content_for :header do %>
+  <section class="hero is-warning">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Browse the latest instruments on Flanger
+        </h1>
+      </div>
+    </div>
+  </section>
+<% end%>
 
-<h1>Instruments</h1>
+<div class="columns is-multiline">
+  <% @instruments.each do |instrument| %>
+    <div class="column is-4-desktop is-6-tablet has-background-light">
 
-<table>
-  <thead>
-    <tr>
-      <th>Brand</th>
-      <th>Model</th>
-      <th>Description</th>
-      <th>Condition</th>
-      <th>Finish</th>
-      <th>Title</th>
-      <th>Price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <%= link_to instrument_path(instrument) do %>
+        <div class="card ">
+        
+          <div class="card-image ">
+            <figure class="image is-rounded">
+              <%= image_tag(instrument.image_url(:thumb)) %>
+            </figure>
+          </div>
 
-  <tbody>
-    <% @instruments.each do |instrument| %>
-      <tr>
-        <td><%= instrument.brand %></td>
-        <td><%= instrument.model %></td>
-        <td><%= instrument.description %></td>
-        <td><%= instrument.condition %></td>
-        <td><%= instrument.finish %></td>
-        <td><%= instrument.title %></td>
-        <td><%= instrument.price %></td>
-        <td><%= link_to 'Show', instrument %></td>
-        <td><%= link_to 'Edit', edit_instrument_path(instrument) %></td>
-        <td><%= link_to 'Destroy', instrument, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          <div class="media-content pa2">
+            <% if instrument.condition? %>
+                <span class="tag is-dark"><%= instrument.condition %></span>
+            <% end %>
+            <span class="title is-4"><%= instrument.title %></span>
+            <div class="">Sold by <%= instrument.user.username %></div>
+            <div class="title is-2"><%= number_to_currency(instrument.price) %></div>
+            <% if instrument_author(instrument) %>
+              <%= link_to 'Edit', edit_instrument_path(instrument), class: "button is-small" %>
+              <%= link_to 'Delete', instrument, method: :delete, data: { confirm: "Are you sure ?" }, class: "button is-small" %>
+            <% end %>
+          </div>
 
-<br>
+        </div>
+      <% end %>
 
-<%= link_to 'New Instrument', new_instrument_path %>
+    </div>
+  <% end %>
+</div>

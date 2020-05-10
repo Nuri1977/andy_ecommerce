@@ -9,11 +9,11 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="<%= yield (:body_class) %>">
     <%= render 'layouts/messages'%>
     <%= render 'layouts/navbar' %>
     <%= yield(:header) %>
-    <div class="container pa2">
+    <div class="container pa3">
       <%= yield %>
     </div>
   </body>
