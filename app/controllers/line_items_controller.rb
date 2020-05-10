@@ -1,5 +1,7 @@
 class LineItemsController < ApplicationController
+  include CurrentCart
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_cart, only: [:create]
 
   # GET /line_items
   # GET /line_items.json
@@ -24,11 +26,12 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-    @line_item = LineItem.new(line_item_params)
+    instrument = Instrument.find(params[:instrument_id])
+    @line_item = @card.add_instrument(line_item_params)
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item, notice: 'Line item was successfully created.' }
+        format.html { redirect_to @line_item.cart, notice: 'Item added to cart' }
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new }
@@ -69,6 +72,6 @@ class LineItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def line_item_params
-      params.require(:line_item).permit(:instrument_id, :cart_id)
+      params.require(:line_item).permit(:instrument_id)
     end
 end

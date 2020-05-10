@@ -2,6 +2,7 @@ class Instrument < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   belongs_to :user, optional: true
+  has_many :line_items
 
   validates :title, presence: true, length: { minimum: 3, maximum: 140 }
   validates :brand, presence: true
