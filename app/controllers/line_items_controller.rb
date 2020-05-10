@@ -60,7 +60,7 @@ class LineItemsController < ApplicationController
     @cart = Cart.find(session[:cart_id])
     @line_item.destroy
     respond_to do |format|
-      format.html { redirect_to card_path(@cart), notice: 'Line item was successfully destroyed.' }
+      format.html { redirect_to cart_path(@cart), notice: 'Line item was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -34,7 +34,7 @@
 
     <div class="navbar-end">
 
-    <% if total_cart_items %>
+    <% if cart_has_items %>
       <%= link_to cart_path(@cart), class:"navbar-item button is-warning" do %>
       <span class="icon is-small">
         <i class="fa fa-shopping-cart"></i>
