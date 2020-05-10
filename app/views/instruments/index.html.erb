@@ -12,7 +12,7 @@
 
 <div class="columns is-multiline">
   <% @instruments.each do |instrument| %>
-    <div class="column is-4-desktop is-6-tablet has-background-light">
+    <div class="column is-3 is-4-desktop is-6-tablet has-background-light">
 
       <%= link_to instrument_path(instrument) do %>
         <div class="card ">
@@ -27,9 +27,9 @@
             <% if instrument.condition? %>
                 <span class="tag is-dark"><%= instrument.condition %></span>
             <% end %>
-            <span class="title is-4"><%= instrument.title %></span>
+            <span class="title is-6"><%= instrument.title %></span>
             <div class="">Sold by <%= instrument.user.username %></div>
-            <div class="title is-2"><%= number_to_currency(instrument.price) %></div>
+            <div class="title is-4"><%= number_to_currency(instrument.price) %></div>
             <% if instrument_author(instrument) %>
               <%= link_to 'Edit', edit_instrument_path(instrument), class: "button is-small" %>
               <%= link_to 'Delete', instrument, method: :delete, data: { confirm: "Are you sure ?" }, class: "button is-small" %>
