@@ -1,4 +1,4 @@
-module CurentCart
+module CurrentCart
 
   private
 

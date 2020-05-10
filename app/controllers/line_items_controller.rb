@@ -27,7 +27,7 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     instrument = Instrument.find(params[:instrument_id])
-    @line_item = @card.add_instrument(line_item_params)
+    @line_item = @card.add_instrument(instrument)
 
     respond_to do |format|
       if @line_item.save

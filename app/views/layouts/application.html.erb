@@ -15,6 +15,8 @@
     <%= yield(:header) %>
     <div class="container pa3">
       <%= yield %>
+      <hr>
+      <%= debug(params) if Rails.env.development? %>
     </div>
   </body>
 </html>
